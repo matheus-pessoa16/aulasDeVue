@@ -3,7 +3,7 @@
     <div>
       <v-btn>Criar Material</v-btn>
     </div>
-
+    <!--  -->
     <v-dialog v-model="dialog" width="75%" scrollable>
       <v-card>
         <v-toolbar>
@@ -72,6 +72,7 @@
         <td class="text-xs-right">{{ material.item.codigoUfrn }}</td>
         <td class="text-xs-right">{{ material.item.categoria.tipo }}</td>
         <td class="text-xs-right">{{ material.item.unidadeMedida }}</td>
+        <td class="text-xs-right" @click="deletar"><i class="fa fa-times" aria-hidden="true"></i></td>
       </template>
     </v-data-table>
     <!-- {{listaDeMateriais}} -->
@@ -115,6 +116,9 @@ export default {
     salvar() {
       console.log(this.material);
       this.$store.dispatch("criarMaterial");
+    },
+    deletar() {
+      this.$store.dispatch("deletarMaterial");
     },
     limpar() {}
   },

@@ -17,7 +17,16 @@ function POST(rota, dados){
     })
 }
 
+function DELETE(rota, dados){
+    return axios({
+        url:`${BACKEND_URL}${rota}`,
+        method: "DELETE",
+        data : dados
+    })
+}
+
 export const HttpClient = {
     GET: GET,
-    POST : POST
+    POST : POST,
+    DELETE: DELETE
 }
